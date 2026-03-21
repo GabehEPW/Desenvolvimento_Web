@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+/* Ligando cada parte ao grid */
+header {
+    grid-area: header;
+    background: #222;
+    color: white;
+    padding: 15px;
+}
+
+main {
+    grid-area: main;
+    padding: 15px;
+}
+
+aside {
+    grid-area: aside;
+    background: #f4f4f4;
+    padding: 15px;
+}
+
+footer {
+    grid-area: footer;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
