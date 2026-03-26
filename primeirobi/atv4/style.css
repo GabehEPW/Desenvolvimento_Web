@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #eaeaea;
+    background: #d4d4d4;
     padding: 10px;
 }
 
@@ -22,7 +22,7 @@ body {
 
 header {
     grid-area: header;
-    background: #222;
+    background: #2d0036;
     color: white;
     padding: 20px;
     border-radius: 8px;
@@ -49,7 +49,7 @@ aside {
 
 footer {
     grid-area: footer;
-    background: #222;
+    background: #2d0036;
     color: white;
     text-align: center;
     padding: 15px;
