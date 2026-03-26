@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +6,45 @@
 
 body {
     font-family: Arial, sans-serif;
+    background: #eaeaea;
+    padding: 10px;
+}
 
+.container {
     display: grid;
     grid-template-areas:
         "header header"
         "main aside"
         "footer footer";
-
     grid-template-columns: 2fr 1fr;
-    gap: 10px;
+    gap: 15px;
 }
 
-/* ÁREAS DO GRID */
 header {
     grid-area: header;
     background: #222;
     color: white;
-    padding: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 main {
     grid-area: main;
-    padding: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 aside {
     grid-area: aside;
     background: #f4f4f4;
-    padding: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 footer {
@@ -42,15 +52,17 @@ footer {
     background: #222;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 8px;
 }
 
-/* FLEXBOX NO MENU */
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 nav a {
@@ -63,22 +75,44 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* IMAGEM RESPONSIVA */
+p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside li {
+    margin-bottom: 10px;
+}
+
 img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    margin-top: 10px;
 }
 
-/* RESPONSIVIDADE */
+figure {
+    margin-top: 15px;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
 @media (max-width: 768px) {
-    body {
+    .container {
         grid-template-areas:
             "header"
             "main"
             "aside"
             "footer";
-
         grid-template-columns: 1fr;
     }
 
