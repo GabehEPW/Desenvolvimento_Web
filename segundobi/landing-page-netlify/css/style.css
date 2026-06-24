@@ -243,3 +243,101 @@ a {
         transform: none;
     }
 }
+
+/* Seção de contato */
+.contato {
+    padding: 90px 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+/* Texto pequeno */
+.contato span {
+    color: #2da8ff;
+    font-weight: bold;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Título da seção */
+.contato h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+/* Texto da seção */
+.contato p {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: #777777;
+    line-height: 1.6;
+}
+
+/* Formulário */
+.form-contato {
+    max-width: 620px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Campos do formulário */
+.form-contato input,
+.form-contato textarea {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Campo da mensagem */
+.form-contato textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+/* Efeito ao clicar no campo */
+.form-contato input:focus,
+.form-contato textarea:focus {
+    border-color: #2da8ff;
+}
+
+/* Botão do formulário */
+.form-contato button {
+    width: 150px;
+    height: 48px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2da8ff;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Efeito do botão */
+.form-contato button:hover {
+    background-color: #168bd8;
+}
+
+/* Mensagem de status */
+#mensagem-status {
+    color: #555555;
+    font-size: 14px;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .contato h2 {
+        font-size: 30px;
+    }
+
+    .form-contato button {
+        width: 100%;
+    }
+}
