@@ -1,133 +1,245 @@
 /* Remove espaçamentos padrões */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Deixa a rolagem mais suave */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 /* Estilo geral do site */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #25273a;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #25273a;
 }
 
 /* Remove o sublinhado dos links */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Cabeçalho */
 .header {
-  background-color: #ffffff;
-  border-bottom: 1px solid #eeeeee;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
 }
 
 /* Área da navegação */
 .navbar {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 24px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Logo */
 .logo {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 /* Menu */
 .menu {
-  list-style: none;
-  display: flex;
-  gap: 30px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
 /* Links do menu */
 .menu a {
-  color: #555555;
-  font-weight: bold;
+    color: #555555;
+    font-weight: bold;
 }
 
 /* Efeito ao passar o mouse */
 .menu a:hover {
-  color: #2da8ff;
+    color: #2da8ff;
 }
 
 /* Seção inicial */
 .hero {
-  min-height: 80vh;
-  padding: 100px 20px;
-  text-align: center;
+    min-height: 80vh;
+    padding: 100px 20px;
+    text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Texto pequeno */
 .hero span {
-  color: #2da8ff;
-  font-weight: bold;
-  margin-bottom: 16px;
+    color: #2da8ff;
+    font-weight: bold;
+    margin-bottom: 16px;
 }
 
 /* Título principal */
 .hero h2 {
-  max-width: 750px;
-  font-size: 48px;
-  margin-bottom: 24px;
+    max-width: 750px;
+    font-size: 48px;
+    margin-bottom: 24px;
 }
 
 /* Texto da seção */
 .hero p {
-  max-width: 600px;
-  color: #777777;
-  font-size: 17px;
-  line-height: 1.6;
-  margin-bottom: 36px;
+    max-width: 600px;
+    color: #777777;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 36px;
 }
 
 /* Botão principal */
 .botao {
-  background-color: #2da8ff;
-  color: #ffffff;
-  padding: 16px 32px;
-  border-radius: 6px;
-  font-weight: bold;
+    background-color: #2da8ff;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-weight: bold;
 }
 
 /* Efeito do botão */
 .botao:hover {
-  background-color: #168bd8;
+    background-color: #168bd8;
 }
 
 /* Ajuste para celular */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 20px;
-  }
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-  .menu {
-    gap: 20px;
-  }
+    .menu {
+        gap: 20px;
+    }
 
-  .hero h2 {
-    font-size: 34px;
-  }
+    .hero h2 {
+        font-size: 34px;
+    }
 
-  .hero p {
-    font-size: 15px;
-  }
+    .hero p {
+        font-size: 15px;
+    }
+}
+
+/* Seção de preços */
+.precos {
+    padding: 90px 20px;
+    text-align: center;
+    background-color: #f8f9fb;
+}
+
+/* Texto pequeno */
+.precos span {
+    color: #2da8ff;
+    font-weight: bold;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Título da seção */
+.precos h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+/* Texto da seção */
+.precos p {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: #777777;
+    line-height: 1.6;
+}
+
+/* Área dos cards */
+.cards-precos {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+
+/* Card de preço */
+.card-preco {
+    background-color: #ffffff;
+    width: 300px;
+    padding: 35px 25px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+}
+
+/* Nome do plano */
+.card-preco h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+/* Preço */
+.card-preco strong {
+    display: block;
+    font-size: 28px;
+    color: #2da8ff;
+    margin-bottom: 24px;
+}
+
+/* Lista do card */
+.card-preco ul {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+/* Item da lista */
+.card-preco li {
+    color: #666666;
+    margin-bottom: 12px;
+}
+
+/* Card em destaque */
+.destaque {
+    border: 2px solid #2da8ff;
+    transform: scale(1.05);
+}
+
+/* Botão do card */
+.botao-card {
+    display: inline-block;
+    background-color: #2da8ff;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* Efeito no botão */
+.botao-card:hover {
+    background-color: #168bd8;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .cards-precos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-preco {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .destaque {
+        transform: none;
+    }
 }

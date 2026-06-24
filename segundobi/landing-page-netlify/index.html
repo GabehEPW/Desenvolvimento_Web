@@ -1,55 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <!-- Configuração básica da página -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Configuração básica da página -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Nome que aparece na aba do navegador -->
-  <title>ComputSpace</title>
+    <!-- Nome que aparece na aba do navegador -->
+    <title>ComputSpace</title>
 
-  <!-- Arquivo de estilos -->
-  <link rel="stylesheet" href="./css/style.css" />
+    <!-- Arquivo de estilos -->
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
 
-  <!-- Cabeçalho do site -->
-  <header class="header">
-    <nav class="navbar">
+    <!-- Cabeçalho do site -->
+    <header class="header">
+        <nav class="navbar">
 
-      <!-- Logo do projeto -->
-      <h1 class="logo">ComputSpace</h1>
+            <!-- Logo do projeto -->
+            <h1 class="logo">ComputSpace</h1>
 
-      <!-- Menu do site -->
-      <ul class="menu">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#precos">Preços</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
+            <!-- Menu do site -->
+            <ul class="menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
 
-    </nav>
-  </header>
+        </nav>
+    </header>
 
-  <!-- Conteúdo principal -->
-  <main>
+    <!-- Conteúdo principal -->
+    <main>
 
-    <!-- Primeira seção do site -->
-    <section id="inicio" class="hero">
-      <span>Monte seu PC com inteligência</span>
+        <!-- Primeira seção do site -->
+        <section id="inicio" class="hero">
+            <span>Monte seu PC com inteligência</span>
 
-      <h2>Encontre a configuração ideal para você</h2>
+            <h2>Encontre a configuração ideal para você</h2>
 
-      <p>
-        O ComputSpace ajuda pessoas a escolher peças compatíveis
-        e montar computadores de forma simples.
-      </p>
+            <p>
+                O ComputSpace ajuda pessoas a escolher peças compatíveis
+                e montar computadores de forma simples.
+            </p>
 
-      <a href="#contato" class="botao">Começar agora</a>
-    </section>
+            <a href="#contato" class="botao">Começar agora</a>
+        </section>
 
-  </main>
+        <!-- Seção de preços -->
+        <section id="precos" class="precos">
 
-  <!-- Arquivo JavaScript -->
-  <script src="./js/script.js"></script>
+            <!-- Texto pequeno da seção -->
+            <span>Escolha seu plano</span>
+
+            <!-- Título da seção -->
+            <h2>Planos para montar seu PC</h2>
+
+            <!-- Texto explicando a seção -->
+            <p>
+                Escolha o plano ideal para receber sugestões de peças,
+                compatibilidade e montagem de computadores.
+            </p>
+
+            <!-- Área dos cards -->
+            <div class="cards-precos">
+
+                <!-- Card 1 -->
+                <div class="card-preco">
+                    <h3>Básico</h3>
+                    <strong>Grátis</strong>
+
+                    <ul>
+                        <li>Sugestão simples de peças</li>
+                        <li>Verificação básica</li>
+                        <li>Ideal para iniciantes</li>
+                    </ul>
+
+                    <a href="#contato" class="botao-card">Começar</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-preco destaque">
+                    <h3>Gamer</h3>
+                    <strong>R$ 29,90</strong>
+
+                    <ul>
+                        <li>Montagem por orçamento</li>
+                        <li>Comparação de peças</li>
+                        <li>Cálculo de consumo</li>
+                    </ul>
+
+                    <a href="#contato" class="botao-card">Escolher</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-preco">
+                    <h3>Pro</h3>
+                    <strong>R$ 49,90</strong>
+
+                    <ul>
+                        <li>Configurações avançadas</li>
+                        <li>Ajuda para upgrade</li>
+                        <li>Histórico de montagens</li>
+                    </ul>
+
+                    <a href="#contato" class="botao-card">Conhecer</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Arquivo JavaScript -->
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
