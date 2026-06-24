@@ -1,0 +1,133 @@
+/* Remove espaçamentos padrões */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Deixa a rolagem mais suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo geral do site */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #25273a;
+}
+
+/* Remove o sublinhado dos links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* Área da navegação */
+.navbar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+/* Links do menu */
+.menu a {
+  color: #555555;
+  font-weight: bold;
+}
+
+/* Efeito ao passar o mouse */
+.menu a:hover {
+  color: #2da8ff;
+}
+
+/* Seção inicial */
+.hero {
+  min-height: 80vh;
+  padding: 100px 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Texto pequeno */
+.hero span {
+  color: #2da8ff;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Título principal */
+.hero h2 {
+  max-width: 750px;
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+/* Texto da seção */
+.hero p {
+  max-width: 600px;
+  color: #777777;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+/* Botão principal */
+.botao {
+  background-color: #2da8ff;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Efeito do botão */
+.botao:hover {
+  background-color: #168bd8;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu {
+    gap: 20px;
+  }
+
+  .hero h2 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+}
