@@ -341,3 +341,90 @@ a {
         width: 100%;
     }
 }
+
+/* Footer */
+.footer {
+    background-color: #ffffff;
+    padding-top: 70px;
+}
+
+/* Conteúdo do footer */
+.footer-conteudo {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 70px;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+/* Nome da marca */
+.footer-marca h3 {
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+
+/* Redes sociais */
+.redes-sociais {
+    display: flex;
+    gap: 18px;
+}
+
+/* Links das redes */
+.redes-sociais a {
+    color: #2da8ff;
+    font-size: 14px;
+}
+
+/* Títulos das colunas */
+.footer-coluna h4 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+/* Links das colunas */
+.footer-coluna a {
+    display: block;
+    color: #666666;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+/* Efeito nos links */
+.footer-coluna a:hover,
+.redes-sociais a:hover {
+    color: #168bd8;
+}
+
+/* Parte final do footer */
+.footer-final {
+    background-color: #f8f9fb;
+    text-align: center;
+    padding: 22px 20px;
+}
+
+/* Texto final */
+.footer-final p {
+    color: #666666;
+    font-size: 14px;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .footer-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-conteudo {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .redes-sociais {
+        justify-content: center;
+    }
+}
