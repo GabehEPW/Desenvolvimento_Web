@@ -2,14 +2,14 @@
 <html lang="pt-BR">
 
 <head>
-    <!-- Configuração básica da página -->
+    <!-- Configuração da página -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Nome que aparece na aba do navegador -->
+    <!-- Título da aba -->
     <title>ComputSpace</title>
 
-    <!-- Arquivo de estilos -->
+    <!-- CSS do site -->
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -22,7 +22,7 @@
             <!-- Logo do projeto -->
             <h1 class="logo">ComputSpace</h1>
 
-            <!-- Menu do site -->
+            <!-- Menu de navegação -->
             <ul class="menu">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#precos">Preços</a></li>
@@ -35,7 +35,7 @@
     <!-- Conteúdo principal -->
     <main>
 
-        <!-- Primeira seção do site -->
+        <!-- Seção inicial -->
         <section id="inicio" class="hero">
             <span>Monte seu PC com inteligência</span>
 
@@ -51,23 +51,19 @@
 
         <!-- Seção de preços -->
         <section id="precos" class="precos">
-
-            <!-- Texto pequeno da seção -->
             <span>Escolha seu plano</span>
 
-            <!-- Título da seção -->
             <h2>Planos para montar seu PC</h2>
 
-            <!-- Texto explicando a seção -->
             <p>
                 Escolha o plano ideal para receber sugestões de peças,
                 compatibilidade e montagem de computadores.
             </p>
 
-            <!-- Área dos cards -->
+            <!-- Cards de preços -->
             <div class="cards-precos">
 
-                <!-- Card 1 -->
+                <!-- Plano básico -->
                 <div class="card-preco">
                     <h3>Básico</h3>
                     <strong>Grátis</strong>
@@ -81,7 +77,7 @@
                     <a href="#contato" class="botao-card">Começar</a>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Plano gamer -->
                 <div class="card-preco destaque">
                     <h3>Gamer</h3>
                     <strong>R$ 29,90</strong>
@@ -95,7 +91,7 @@
                     <a href="#contato" class="botao-card">Escolher</a>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Plano pro -->
                 <div class="card-preco">
                     <h3>Pro</h3>
                     <strong>R$ 49,90</strong>
@@ -114,45 +110,53 @@
 
         <!-- Seção de contato -->
         <section id="contato" class="contato">
-
-            <!-- Texto pequeno -->
             <span>Envie sua dúvida</span>
 
-            <!-- Título da seção -->
             <h2>Entre em contato</h2>
 
-            <!-- Texto explicativo -->
             <p>
                 Entre em contato para tirar dúvidas sobre montagem de computadores,
                 peças compatíveis ou sugestões de configuração.
             </p>
 
             <!-- Formulário de contato -->
-            <form class="form-contato" id="form-contato">
+            <form class="form-contato" id="form-contato" novalidate>
 
                 <!-- Campo de e-mail -->
-                <input type="email" name="email" placeholder="Seu melhor Email" required />
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Seu melhor Email" 
+                    required 
+                />
 
                 <!-- Campo da mensagem -->
-                <textarea name="mensagem"
+                <textarea 
+                    name="mensagem"
                     placeholder="Motivo do contato. Ex: Gostei muito do ComputSpace, poderia me enviar um orçamento?"
                     required></textarea>
+
+                <!-- Captcha do Google -->
+                <div 
+                    class="g-recaptcha" 
+                    data-sitekey="6Le1dTQtAAAAAIZtFxks-JZseXdC0ywZNjhwBHqO">
+                </div>
 
                 <!-- Botão de envio -->
                 <button type="submit">Enviar</button>
 
-                <!-- Mensagem que aparece depois do envio -->
-                <small id="mensagem-status"></small>
+                <!-- Mensagem do formulário -->
+                <small id="mensagem-status" aria-live="polite"></small>
 
             </form>
-
         </section>
 
     </main>
+
     <!-- Rodapé do site -->
     <footer class="footer">
 
-        <!-- Parte principal do footer -->
+        <!-- Conteúdo do rodapé -->
         <div class="footer-conteudo">
 
             <!-- Marca e redes sociais -->
@@ -166,7 +170,7 @@
                 </div>
             </div>
 
-            <!-- Coluna empresa -->
+            <!-- Links da empresa -->
             <div class="footer-coluna">
                 <h4>Empresa</h4>
                 <a href="#inicio">Sobre nós</a>
@@ -174,7 +178,7 @@
                 <a href="#precos">Planos</a>
             </div>
 
-            <!-- Coluna funcionalidades -->
+            <!-- Links das funcionalidades -->
             <div class="footer-coluna">
                 <h4>Funcionalidades</h4>
                 <a href="#precos">Montagem de PC</a>
@@ -182,7 +186,7 @@
                 <a href="#precos">Orçamentos</a>
             </div>
 
-            <!-- Coluna recursos -->
+            <!-- Links de recursos -->
             <div class="footer-coluna">
                 <h4>Recursos</h4>
                 <a href="#inicio">Web App</a>
@@ -192,7 +196,7 @@
 
         </div>
 
-        <!-- Parte final do footer -->
+        <!-- Direitos reservados -->
         <div class="footer-final">
             <p>
                 Feito com amor na aula de Programação Web 💙 © 2026 ComputSpace - Todos os direitos reservados.
@@ -200,7 +204,11 @@
         </div>
 
     </footer>
-    <!-- Arquivo JavaScript -->
+
+    <!-- Script do Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- JavaScript do site -->
     <script src="./js/script.js"></script>
 </body>
 
