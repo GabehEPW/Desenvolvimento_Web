@@ -89,10 +89,26 @@ if (formContato) {
         mostrarStatus("Enviando mensagem...", "carregando");
 
         try {
-            // Simulação do envio por enquanto
-            await new Promise(function (resolve) {
-                setTimeout(resolve, 1200);
+            // Dados enviados para a função do Netlify
+            const dados = {
+                email: email,
+                mensagem: mensagem,
+                recaptchaToken: recaptchaToken
+            };
+
+            // Chama a Netlify Function
+            const resposta = await fetch("/.netlify/functions/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
             });
+
+            // Se a função retornar erro, cai no catch
+            if (!resposta.ok) {
+                throw new Error("Erro ao enviar mensagem.");
+            }
 
             mostrarStatus("Mensagem enviada com sucesso!", "sucesso");
 
@@ -102,7 +118,10 @@ if (formContato) {
         } catch (error) {
             mostrarStatus("Erro ao enviar mensagem. Tente novamente.", "erro");
             console.error(error);
-            grecaptcha.reset();
+
+            if (typeof grecaptcha !== "undefined") {
+                grecaptcha.reset();
+            }
 
         } finally {
             botao.disabled = false;
