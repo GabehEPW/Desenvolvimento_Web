@@ -67,21 +67,6 @@ if (formContato) {
             return;
         }
 
-        // Verifica se o reCAPTCHA carregou
-        if (typeof grecaptcha === "undefined") {
-            mostrarStatus("O reCAPTCHA ainda não carregou. Tente novamente.", "erro");
-            return;
-        }
-
-        // Pega a resposta do reCAPTCHA
-        const recaptchaToken = grecaptcha.getResponse();
-
-        // Impede o envio se o captcha não foi marcado
-        if (recaptchaToken === "") {
-            mostrarStatus("Confirme o reCAPTCHA antes de enviar.", "erro");
-            return;
-        }
-
         // Desativa o botão enquanto envia
         botao.disabled = true;
         botao.textContent = "Enviando...";
@@ -92,8 +77,7 @@ if (formContato) {
             // Dados enviados para a função do Netlify
             const dados = {
                 email: email,
-                mensagem: mensagem,
-                recaptchaToken: recaptchaToken
+                mensagem: mensagem
             };
 
             // Chama a Netlify Function
@@ -105,23 +89,20 @@ if (formContato) {
                 body: JSON.stringify(dados)
             });
 
-            // Se a função retornar erro, cai no catch
+            const resultado = await resposta.json();
+
+            // Se a função retornar erro, mostra o erro real
             if (!resposta.ok) {
-                throw new Error("Erro ao enviar mensagem.");
+                throw new Error(resultado.erro || "Erro ao enviar mensagem.");
             }
 
             mostrarStatus("Mensagem enviada com sucesso!", "sucesso");
 
             formContato.reset();
-            grecaptcha.reset();
 
         } catch (error) {
-            mostrarStatus("Erro ao enviar mensagem. Tente novamente.", "erro");
+            mostrarStatus(error.message, "erro");
             console.error(error);
-
-            if (typeof grecaptcha !== "undefined") {
-                grecaptcha.reset();
-            }
 
         } finally {
             botao.disabled = false;
