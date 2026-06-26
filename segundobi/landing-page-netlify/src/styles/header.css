@@ -1,0 +1,100 @@
+/* Cabeçalho */
+.site-header {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(16, 16, 16, 0.95);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    color: var(--primary-light);
+}
+
+/* Links do menu */
+.nav-links a {
+    color: var(--second-text-color);
+}
+
+/* Efeito dos links */
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+/* Link com cor invertida */
+.reverse-color {
+    color: var(--primary-color);
+}
+
+/* Efeito do link invertido */
+.reverse-color:hover {
+    color: var(--second-text-color);
+}
+
+/* Espaçamento do login */
+.ml-lg {
+    margin-right: 2.875rem;
+}
+
+/* Menu mobile */
+.mobile-menu {
+    display: initial;
+    z-index: 4;
+}
+
+/* Botão do menu mobile */
+.menu-button {
+    background: transparent;
+    border: none;
+    color: var(--primary-light);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Conteúdo do menu mobile */
+.mobile-menu-content {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    background: var(--bg-color);
+    padding-top: 1.5rem;
+}
+
+/* Área interna do menu mobile */
+.mobile-menu-content .container {
+    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Lista do menu mobile */
+.mobile-menu-content ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* Links do menu mobile */
+.mobile-menu-content a {
+    font-size: var(--fs-lg);
+}
+
+/* Desktop */
+@media (width >= 1280px) {
+    .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu-content {
+        display: none;
+    }
+
+    .nav-links {
+        gap: 2rem;
+    }
+}

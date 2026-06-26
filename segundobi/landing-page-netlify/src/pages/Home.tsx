@@ -1,23 +1,11 @@
+import Header from "../components/Header";
+import Button from "../components/Button";
+import Solutions from "../components/Solutions";
+
 export default function Home() {
     return (
         <>
-            <header className="container py-sm">
-                <nav className="flex items-center justify-between">
-                    <h1 className="logo">ComputSpace</h1>
-
-                    <ul className="flex gap-1">
-                        <li>
-                            <a href="#hero">Início</a>
-                        </li>
-                        <li>
-                            <a href="#pricing">Preços</a>
-                        </li>
-                        <li>
-                            <a href="#contact">Contato</a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <Header />
 
             <main>
                 <section id="hero" className="container py-xl">
@@ -31,11 +19,11 @@ export default function Home() {
                             e montar computadores de forma simples, rápida e segura.
                         </p>
 
-                        <a href="#contact" className="btn-primary">
-                            Começar agora
-                        </a>
+                        <Button text="Começar agora" href="#solution" />
                     </div>
                 </section>
+
+                <Solutions />
             </main>
         </>
     );

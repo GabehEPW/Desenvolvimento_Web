@@ -1,0 +1,42 @@
+/* Botão principal */
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    padding-block: 0.825rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: solid transparent 0.15rem;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.25);
+}
+
+/* Efeito do botão principal */
+.btn-primary:hover {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Botão secundário */
+.btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    padding-block: 0.825rem;
+    padding-inline: 1.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: solid var(--primary-color) 0.15rem;
+}
+
+/* Efeito do botão secundário */
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    border-color: transparent;
+}

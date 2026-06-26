@@ -40,7 +40,6 @@
 * {
     margin: 0;
     padding: 0;
-    font: inherit;
 }
 
 /* Configuração geral */
@@ -57,7 +56,9 @@ html {
 
 /* Corpo da página */
 body {
+    min-height: 100vh;
     background-color: var(--bg-color);
+    color: var(--text-color);
     overflow-x: hidden;
 }
 
@@ -94,17 +95,6 @@ img {
     display: inline-block;
 }
 
-/* Logo */
-.logo {
-    font-size: 1.5rem;
-    color: var(--primary-light);
-}
-
-/* Cabeçalho */
-header {
-    border-bottom: 1px solid var(--border-color);
-}
-
 /* Hero */
 #hero {
     min-height: 80vh;
@@ -139,22 +129,6 @@ header {
 .hero-content p {
     color: var(--second-text-color);
     max-width: 620px;
-}
-
-/* Botão principal */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 0.9rem 1.8rem;
-    border-radius: 0.4rem;
-    box-shadow: 0 0 18px rgba(139, 92, 246, 0.25);
-}
-
-/* Efeito do botão */
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-    color: #ffffff;
 }
 
 /* Responsivo desktop */
