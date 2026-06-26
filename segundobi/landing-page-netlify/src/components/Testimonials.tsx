@@ -41,6 +41,27 @@ const testimonials: Testimonial[] = [
         rating: 4,
         comment:
             "A compatibilidade ficou tao bem explicada que da para fazer live, corte, analise e ainda sobram dados para um cafe."
+    },
+    {
+        name: "Renato Cariani",
+        role: "Fisiculturista e influenciador digital brasileiro",
+        image: "/testimonials/renato-cariani.png",
+        rating: 5,
+        comment: "Eu quero eu posso."
+    },
+    {
+        name: "Alanzoka",
+        role: "Streamer brasileiro",
+        image: "/testimonials/alanzoka.png",
+        rating: 5,
+        comment: "RTX5090 TI delicinhaaa."
+    },
+    {
+        name: "Flow Podcast",
+        role: "Podcast brasileiro",
+        image: "/testimonials/flow-podcast.png",
+        rating: 5,
+        comment: "Preciso de voces aqui para gravar."
     }
 ];
 
