@@ -38,6 +38,7 @@ export default function ContactForm() {
         import.meta.env.VITE_RECAPTCHA_SITE_KEY ||
         "6LcpODUtAAAAAP89rp4Jan5wFFGiZZ_aJRFLNPpJ";
 
+    // Renderiza o reCAPTCHA quando o script estiver disponivel.
     useEffect(() => {
         if (!recaptchaSiteKey || !recaptchaRef.current) {
             return;
@@ -56,10 +57,12 @@ export default function ContactForm() {
             ) {
                 recaptchaWidgetIdRef.current = recaptcha.render(
                     recaptchaRef.current,
+        // Valida o formato do e-mail antes do envio.
                     {
                         sitekey: recaptchaSiteKey,
                         theme: "dark",
                         callback: (token) => setRecaptchaToken(token),
+        // Limpa o widget depois de cada tentativa.
                         "expired-callback": () => setRecaptchaToken(""),
                         "error-callback": () => {
                             setRecaptchaToken("");
@@ -101,6 +104,7 @@ export default function ContactForm() {
         setRecaptchaToken("");
     }
 
+    // Envia o formulario para a function da Netlify.
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
@@ -185,6 +189,7 @@ export default function ContactForm() {
     return (
         <section id="contact" className="container">
             <header>
+                {/* Cabecalho da area de contato. */}
                 <span>Contato</span>
 
                 <h2>Entre em contato</h2>
@@ -195,6 +200,7 @@ export default function ContactForm() {
                 </p>
             </header>
 
+            {/* Formulario principal da pagina. */}
             <form className="contact-form" onSubmit={handleSubmit}>
                 <input
                     type="email"
@@ -217,6 +223,7 @@ export default function ContactForm() {
                     disabled={loading}
                 />
 
+                {/* Feedback de status do envio. */}
                 {status && <small className={statusType}>{status}</small>}
             </form>
         </section>

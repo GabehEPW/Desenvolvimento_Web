@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import "./styles/index.css";
 import "./styles/utility.css";
 
+// Ponto de entrada da aplicacao.
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
         <Home />

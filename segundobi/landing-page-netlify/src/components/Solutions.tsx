@@ -5,6 +5,7 @@ export default function Solutions() {
     return (
         <section className="container" id="solution">
             <header>
+                {/* Intro da secao de solucoes. */}
                 <span>
                     <h2>Soluções</h2>
 
@@ -20,6 +21,7 @@ export default function Solutions() {
                 </p>
             </header>
 
+            {/* Cards com os recursos principais. */}
             <section className="solution-cards">
                 <SolutionCard
                     icon="🧩"

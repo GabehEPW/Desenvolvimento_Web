@@ -5,6 +5,7 @@ export default function Pricing() {
     return (
         <section id="pricing" className="container">
             <header>
+                {/* Intro da secao de planos. */}
                 <span>Preços</span>
 
                 <h2>Planos para montar seu PC</h2>
@@ -15,6 +16,7 @@ export default function Pricing() {
                 </p>
             </header>
 
+            {/* Cards dos planos disponiveis. */}
             <div className="pricing-cards">
                 <PricingCard
                     title="Básico"

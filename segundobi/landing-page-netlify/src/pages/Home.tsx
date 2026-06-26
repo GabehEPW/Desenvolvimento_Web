@@ -12,6 +12,7 @@ export default function Home() {
             <Header />
 
             <main>
+                {/* Hero principal da pagina. */}
                 <section id="hero" className="container py-xl">
                     <div className="hero-content">
                         <p className="tag">Monte seu PC com inteligência</p>
@@ -33,6 +34,7 @@ export default function Home() {
 
                 <Pricing />
 
+                {/* Formulario de contato e envio da demo. */}
                 <ContactForm />
             </main>
 

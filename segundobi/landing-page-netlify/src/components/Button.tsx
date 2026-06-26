@@ -11,6 +11,7 @@ interface ButtonProps {
 export default function Button({ text, secondary, href, type = "button", disabled }: ButtonProps) {
     const className = secondary ? "btn-secondary" : "btn-primary";
 
+    // Vira link quando recebe href e botao quando recebe type.
     if (href) {
         return (
             <a className={className} href={href}>

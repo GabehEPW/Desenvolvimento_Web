@@ -5,6 +5,7 @@ interface SolutionCardProps {
 }
 
 export default function SolutionCard({ icon, title, description }: SolutionCardProps) {
+    // Card individual da solucao exibida na pagina.
     return (
         <div className="solution-card">
             <span className="solution-icon">{icon}</span>

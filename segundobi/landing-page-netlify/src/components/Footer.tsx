@@ -4,6 +4,7 @@ export default function Footer() {
     return (
         <footer className="footer">
             <div className="container footer-content">
+                {/* Marca e redes sociais. */}
                 <div className="footer-brand">
                     <h3>ComputSpace</h3>
 
@@ -14,6 +15,7 @@ export default function Footer() {
                     </div>
                 </div>
 
+                {/* Links institucionais. */}
                 <div className="footer-column">
                     <h4>Empresa</h4>
                     <a href="#hero">Sobre nós</a>
@@ -21,6 +23,7 @@ export default function Footer() {
                     <a href="#pricing">Planos</a>
                 </div>
 
+                {/* Recursos destacados do produto. */}
                 <div className="footer-column">
                     <h4>Funcionalidades</h4>
                     <a href="#solution">Montagem de PC</a>
@@ -28,6 +31,7 @@ export default function Footer() {
                     <a href="#pricing">Orçamentos</a>
                 </div>
 
+                {/* Atalhos para recursos e suporte. */}
                 <div className="footer-column">
                     <h4>Recursos</h4>
                     <a href="#hero">Web App</a>
@@ -36,6 +40,7 @@ export default function Footer() {
                 </div>
             </div>
 
+            {/* Rodape final com credito do projeto. */}
             <div className="footer-bottom">
                 <p>
                     Feito com amor na aula de Programação Web 💙 © 2026 ComputSpace - Todos os direitos reservados.

@@ -5,7 +5,7 @@ import "../styles/header.css";
 export default function Header() {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-    // Bloqueia a rolagem quando o menu mobile está aberto
+    // Bloqueia a rolagem quando o menu mobile esta aberto.
     useEffect(() => {
         const html = document.querySelector("html");
 
@@ -27,8 +27,10 @@ export default function Header() {
     return (
         <header className="site-header">
             <nav className="container py-sm flex items-center justify-between">
+                {/* Logo da marca no topo. */}
                 <h1 className="logo">ComputSpace</h1>
 
+                {/* Links visiveis no desktop. */}
                 <div className="desktop-only">
                     <ul className="flex gap-1 nav-links">
                         <li>
@@ -46,6 +48,7 @@ export default function Header() {
                     </ul>
                 </div>
 
+                {/* Acoes principais do desktop. */}
                 <div className="desktop-only">
                     <div className="flex items-center">
                         <a className="reverse-color ml-lg" href="#login">
@@ -56,6 +59,7 @@ export default function Header() {
                     </div>
                 </div>
 
+                {/* Menu mobile expansivel. */}
                 <div className="mobile-menu">
                     {showMobileMenu ? (
                         <div className="mobile-menu-content">

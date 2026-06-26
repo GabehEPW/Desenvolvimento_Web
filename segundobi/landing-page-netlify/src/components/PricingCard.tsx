@@ -8,6 +8,7 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ title, price, features, highlighted }: PricingCardProps) {
+    // Card de um plano individual com CTA para contato.
     return (
         <div className={highlighted ? "pricing-card highlighted" : "pricing-card"}>
             <h3>{title}</h3>

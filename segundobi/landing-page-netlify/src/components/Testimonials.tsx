@@ -56,6 +56,7 @@ export default function Testimonials() {
     const [activeIndex, setActiveIndex] = useState(0);
     const cardRefs = useRef<Array<HTMLElement | null>>([]);
 
+    // Faz o carrossel mover para o depoimento escolhido.
     function goToCard(index: number) {
         const nextIndex = (index + testimonials.length) % testimonials.length;
 
@@ -71,6 +72,7 @@ export default function Testimonials() {
         <section id="testimonials">
             <div className="container testimonials-content">
                 <header>
+                    {/* Titulo e texto de apoio da secao. */}
                     <span>Depoimentos ficticios</span>
 
                     <h2>Cada cliente importa!</h2>
@@ -81,6 +83,7 @@ export default function Testimonials() {
                     </p>
                 </header>
 
+                {/* Carrossel com setas laterais. */}
                 <div className="testimonials-shell">
                     <button
                         className="carousel-button"
@@ -130,6 +133,7 @@ export default function Testimonials() {
                     </button>
                 </div>
 
+                {/* Pontos de navegacao do carrossel. */}
                 <div className="carousel-dots" aria-label="Selecionar depoimento">
                     {testimonials.map((testimonial, index) => (
                         <button
