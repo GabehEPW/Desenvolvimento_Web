@@ -34,7 +34,9 @@ export default function ContactForm() {
 
     const recaptchaRef = useRef<HTMLDivElement>(null);
     const recaptchaWidgetIdRef = useRef<number | null>(null);
-    const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+    const recaptchaSiteKey =
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY ||
+        "6LcpODUtAAAAAP89rp4Jan5wFFGiZZ_aJRFLNPpJ";
 
     useEffect(() => {
         if (!recaptchaSiteKey || !recaptchaRef.current) {
