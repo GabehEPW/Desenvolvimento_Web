@@ -1,8 +1,28 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import "../styles/contact.css";
 
 type StatusType = "sucesso" | "erro" | "carregando" | "";
+
+type RecaptchaApi = {
+    render: (
+        container: HTMLElement,
+        parameters: {
+            sitekey: string;
+            theme?: "dark" | "light";
+            callback: (token: string) => void;
+            "expired-callback": () => void;
+            "error-callback": () => void;
+        }
+    ) => number;
+    reset: (widgetId?: number) => void;
+};
+
+declare global {
+    interface Window {
+        grecaptcha?: RecaptchaApi;
+    }
+}
 
 export default function ContactForm() {
     const [email, setEmail] = useState("");
@@ -10,9 +30,70 @@ export default function ContactForm() {
     const [status, setStatus] = useState("");
     const [statusType, setStatusType] = useState<StatusType>("");
     const [loading, setLoading] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState("");
+
+    const recaptchaRef = useRef<HTMLDivElement>(null);
+    const recaptchaWidgetIdRef = useRef<number | null>(null);
+    const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+    useEffect(() => {
+        if (!recaptchaSiteKey || !recaptchaRef.current) {
+            return;
+        }
+
+        let intervalId: number | undefined;
+
+        function renderRecaptcha() {
+            if (
+                window.grecaptcha &&
+                recaptchaRef.current &&
+                recaptchaWidgetIdRef.current === null
+            ) {
+                recaptchaWidgetIdRef.current = window.grecaptcha.render(
+                    recaptchaRef.current,
+                    {
+                        sitekey: recaptchaSiteKey,
+                        theme: "dark",
+                        callback: (token) => setRecaptchaToken(token),
+                        "expired-callback": () => setRecaptchaToken(""),
+                        "error-callback": () => {
+                            setRecaptchaToken("");
+                            setStatus("Erro ao carregar o reCAPTCHA. Tente novamente.");
+                            setStatusType("erro");
+                        }
+                    }
+                );
+
+                if (intervalId) {
+                    window.clearInterval(intervalId);
+                    intervalId = undefined;
+                }
+            }
+        }
+
+        renderRecaptcha();
+
+        if (!window.grecaptcha) {
+            intervalId = window.setInterval(renderRecaptcha, 300);
+        }
+
+        return () => {
+            if (intervalId) {
+                window.clearInterval(intervalId);
+            }
+        };
+    }, [recaptchaSiteKey]);
 
     function emailValido(email: string) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function resetRecaptcha() {
+        if (window.grecaptcha && recaptchaWidgetIdRef.current !== null) {
+            window.grecaptcha.reset(recaptchaWidgetIdRef.current);
+        }
+
+        setRecaptchaToken("");
     }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -42,6 +123,18 @@ export default function ContactForm() {
             return;
         }
 
+        if (!recaptchaSiteKey) {
+            setStatus("reCAPTCHA não configurado.");
+            setStatusType("erro");
+            return;
+        }
+
+        if (!recaptchaToken) {
+            setStatus("Confirme o reCAPTCHA antes de enviar.");
+            setStatusType("erro");
+            return;
+        }
+
         setLoading(true);
         setStatus("Enviando mensagem...");
         setStatusType("carregando");
@@ -54,7 +147,8 @@ export default function ContactForm() {
                 },
                 body: JSON.stringify({
                     email,
-                    mensagem: message
+                    mensagem: message,
+                    recaptchaToken
                 })
             });
 
@@ -68,6 +162,7 @@ export default function ContactForm() {
             setStatusType("sucesso");
             setEmail("");
             setMessage("");
+            resetRecaptcha();
         } catch (error) {
             if (error instanceof Error) {
                 setStatus(error.message);
@@ -76,6 +171,7 @@ export default function ContactForm() {
             }
 
             setStatusType("erro");
+            resetRecaptcha();
         } finally {
             setLoading(false);
         }
@@ -107,6 +203,8 @@ export default function ContactForm() {
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
                 />
+
+                <div className="recaptcha-wrapper" ref={recaptchaRef} />
 
                 <Button
                     text={loading ? "Enviando..." : "Enviar"}

@@ -68,6 +68,14 @@
     resize: vertical;
 }
 
+.recaptcha-wrapper {
+    min-height: 78px;
+    width: 304px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 /* Foco nos campos */
 .contact-form input:focus,
 .contact-form textarea:focus {

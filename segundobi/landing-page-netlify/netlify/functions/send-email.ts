@@ -4,6 +4,7 @@ import * as nodemailer from "nodemailer";
 interface ContactPayload {
     email: string;
     mensagem: string;
+    recaptchaToken?: string;
 }
 
 interface ErrorResponse {
@@ -30,6 +31,25 @@ function emailValido(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+async function recaptchaValido(token: string) {
+    const params = new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_KEY ?? "",
+        response: token
+    });
+
+    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: params
+    });
+
+    const result = await response.json() as { success?: boolean };
+
+    return result.success === true;
+}
+
 // Evita inserir HTML direto no corpo do e-mail
 function escaparHtml(valor: string) {
     return valor
@@ -53,7 +73,7 @@ export const handler: Handler = async (event) => {
         }
 
         // Pega os dados enviados pelo formulário
-        const { email, mensagem } = JSON.parse(event.body) as ContactPayload;
+        const { email, mensagem, recaptchaToken } = JSON.parse(event.body) as ContactPayload;
 
         // Confere se os dados chegaram completos
         if (!email || !mensagem) {
@@ -63,6 +83,21 @@ export const handler: Handler = async (event) => {
         // Confere se o e-mail é válido
         if (!emailValido(email)) {
             return criarResposta(400, { erro: "E-mail inválido." });
+        }
+
+        // Confere se o reCAPTCHA foi preenchido no formulário
+        if (!recaptchaToken) {
+            return criarResposta(400, { erro: "Confirme o reCAPTCHA antes de enviar." });
+        }
+
+        // Confere se a chave secreta do reCAPTCHA existe
+        if (!process.env.RECAPTCHA_SECRET_KEY) {
+            return criarResposta(500, { erro: "Variável RECAPTCHA_SECRET_KEY não configurada." });
+        }
+
+        // Valida o token do reCAPTCHA com o Google antes de enviar o e-mail
+        if (!await recaptchaValido(recaptchaToken)) {
+            return criarResposta(400, { erro: "reCAPTCHA inválido ou expirado. Tente novamente." });
         }
 
         // Confere se o e-mail do Gmail existe
