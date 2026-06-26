@@ -1,0 +1,63 @@
+/* Container centralizado */
+.container {
+    --max-width: 1050px;
+    width: min(var(--max-width), 100% - var(--px-lg) * 2);
+    margin-inline: auto;
+}
+
+/* Padding vertical pequeno */
+.py-sm {
+    padding-block: var(--py-sm);
+}
+
+/* Padding vertical médio */
+.py-base {
+    padding-block: var(--py-base);
+}
+
+/* Padding vertical grande */
+.py-lg {
+    padding-block: var(--py-lg);
+}
+
+/* Padding vertical extra */
+.py-xl {
+    padding-block: var(--py-xl);
+}
+
+/* Flex */
+.flex {
+    display: flex;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+}
+
+/* Centraliza itens */
+.items-center {
+    align-items: center;
+}
+
+/* Espaço entre itens */
+.justify-between {
+    justify-content: space-between;
+}
+
+/* Espaçamento padrão */
+.gap-1 {
+    gap: 1rem;
+}
+
+/* Esconde elementos apenas de desktop no mobile */
+.desktop-only {
+    display: none;
+}
+
+/* Ajuste para desktop */
+@media (width >= 1280px) {
+    .desktop-only {
+        display: initial;
+    }
+}

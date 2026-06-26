@@ -1,0 +1,166 @@
+/* Cores principais do site */
+:root {
+    --bg-color: #101010;
+    --bg-secondary: #171717;
+    --bg-card: #202020;
+    --border-color: #2e2e2e;
+    --text-color: #f5f5f5;
+    --second-text-color: #b3b3b3;
+    --primary-color: #8b5cf6;
+    --primary-hover: #7c3aed;
+    --primary-light: #a78bfa;
+
+    --ff-sans: "Montserrat", Arial, Helvetica, sans-serif;
+
+    --fw-base: 400;
+    --fw-md: 500;
+    --fw-bold: 800;
+
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 2.25rem;
+    --fs-2xl: 3rem;
+
+    --py-sm: 1rem;
+    --py-base: 1.5rem;
+    --py-lg: 2.5rem;
+    --py-xl: 5rem;
+    --px-lg: 1.5rem;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove espaçamentos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Configuração geral */
+html {
+    font-family: var(--ff-sans);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Corpo da página */
+body {
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    color: var(--text-color);
+    font-weight: var(--fw-bold);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: var(--second-text-color);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+}
+
+/* Efeito dos links */
+a:hover {
+    color: var(--primary-light);
+}
+
+/* Listas */
+ul {
+    list-style: none;
+}
+
+/* Imagens */
+img {
+    max-width: 100%;
+    display: inline-block;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.5rem;
+    color: var(--primary-light);
+}
+
+/* Cabeçalho */
+header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Hero */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Conteúdo do hero */
+.hero-content {
+    max-width: 760px;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Texto pequeno */
+.tag {
+    color: var(--primary-light);
+    font-weight: var(--fw-bold);
+}
+
+/* Título do hero */
+.hero-content h2 {
+    font-size: var(--fs-2xl);
+}
+
+/* Texto do hero */
+.hero-content p {
+    color: var(--second-text-color);
+    max-width: 620px;
+}
+
+/* Botão principal */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.9rem 1.8rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.25);
+}
+
+/* Efeito do botão */
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    color: #ffffff;
+}
+
+/* Responsivo desktop */
+@media (width >= 1280px) {
+    :root {
+        --fs-xl: 2.625rem;
+        --fs-2xl: 4rem;
+    }
+}
