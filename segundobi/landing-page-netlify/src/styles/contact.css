@@ -1,0 +1,20 @@
+/* Mensagem de carregamento */
+.contact-form small.carregando {
+    color: var(--primary-light);
+}
+
+/* Mensagem de sucesso */
+.contact-form small.sucesso {
+    color: #22c55e;
+}
+
+/* Mensagem de erro */
+.contact-form small.erro {
+    color: #ef4444;
+}
+
+/* Botão desativado */
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

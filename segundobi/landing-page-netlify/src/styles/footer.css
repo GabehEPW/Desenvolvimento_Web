@@ -1,0 +1,65 @@
+/* Rodapé */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 4rem;
+}
+
+/* Conteúdo do rodapé */
+.footer-content {
+    display: grid;
+    gap: 3rem;
+    padding-bottom: 4rem;
+}
+
+/* Marca */
+.footer-brand h3 {
+    font-size: 1.5rem;
+    color: var(--primary-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Redes sociais */
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Títulos das colunas */
+.footer-column h4 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+/* Links das colunas */
+.footer-column a {
+    display: block;
+    color: var(--second-text-color);
+    margin-bottom: 0.75rem;
+}
+
+/* Hover dos links */
+.footer-column a:hover,
+.social-links a:hover {
+    color: var(--primary-light);
+}
+
+/* Parte final */
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+/* Texto final */
+.footer-bottom p {
+    color: var(--second-text-color);
+    font-size: var(--fs-sm);
+}
+
+/* Desktop */
+@media (width >= 1280px) {
+    .footer-content {
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+}

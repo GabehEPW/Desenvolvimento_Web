@@ -5,9 +5,10 @@ interface ButtonProps {
     secondary?: boolean;
     href?: string;
     type?: "button" | "submit" | "reset";
+    disabled?: boolean;
 }
 
-export default function Button({ text, secondary, href, type = "button" }: ButtonProps) {
+export default function Button({ text, secondary, href, type = "button", disabled }: ButtonProps) {
     const className = secondary ? "btn-secondary" : "btn-primary";
 
     if (href) {
@@ -19,7 +20,7 @@ export default function Button({ text, secondary, href, type = "button" }: Butto
     }
 
     return (
-        <button className={className} type={type}>
+        <button className={className} type={type} disabled={disabled}>
             {text}
         </button>
     );

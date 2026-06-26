@@ -1,6 +1,9 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Solutions from "../components/Solutions";
+import Pricing from "../components/Pricing";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 export default function Home() {
     return (
@@ -24,7 +27,13 @@ export default function Home() {
                 </section>
 
                 <Solutions />
+
+                <Pricing />
+
+                <ContactForm />
             </main>
+
+            <Footer />
         </>
     );
 }

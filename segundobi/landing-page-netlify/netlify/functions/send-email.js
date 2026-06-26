@@ -19,7 +19,7 @@ exports.handler = async function (event) {
             };
         }
 
-        // Confere se a chave do Resend existe no Netlify
+        // Confere se a chave do Resend existe
         if (!process.env.RESEND_API_KEY) {
             return {
                 statusCode: 500,
@@ -27,7 +27,7 @@ exports.handler = async function (event) {
             };
         }
 
-        // Confere se o email de destino existe no Netlify
+        // Confere se o e-mail de destino existe
         if (!process.env.CONTACT_TO_EMAIL) {
             return {
                 statusCode: 500,
@@ -57,7 +57,7 @@ exports.handler = async function (event) {
 
         const resultadoEmail = await respostaEmail.json();
 
-        // Se o Resend der erro
+        // Se o Resend retornar erro
         if (!respostaEmail.ok) {
             console.error("Erro do Resend:", resultadoEmail);
 
