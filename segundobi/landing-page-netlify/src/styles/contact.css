@@ -1,3 +1,87 @@
+/* Seção de contato */
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 5rem;
+    gap: 3rem;
+}
+
+/* Cabeçalho da seção */
+#contact header {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    max-width: 42rem;
+    border-bottom: none;
+}
+
+/* Texto pequeno */
+#contact header span {
+    color: var(--primary-light);
+    font-weight: var(--fw-bold);
+}
+
+/* Título */
+#contact h2 {
+    font-size: var(--fs-xl);
+}
+
+/* Texto */
+#contact p {
+    color: var(--second-text-color);
+}
+
+/* Formulário */
+.contact-form {
+    width: min(100%, 620px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+/* Campos */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.4rem;
+    background: var(--bg-card);
+    color: var(--text-color);
+    outline: none;
+    font-family: inherit;
+    font-size: var(--fs-sm);
+}
+
+/* Placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #858585;
+}
+
+/* Campo de mensagem */
+.contact-form textarea {
+    min-height: 7rem;
+    resize: vertical;
+}
+
+/* Foco nos campos */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
+}
+
+/* Mensagem do formulário */
+.contact-form small {
+    color: var(--primary-light);
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
 /* Mensagem de carregamento */
 .contact-form small.carregando {
     color: var(--primary-light);
@@ -17,4 +101,11 @@
 .contact-form button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+/* Desktop */
+@media (width >= 1280px) {
+    #contact {
+        padding-block: 7.5rem;
+    }
 }
