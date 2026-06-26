@@ -1,75 +1,133 @@
-# React + TypeScript + Vite
+# ComputSpace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Landing page desenvolvida para apresentar o ComputSpace, uma proposta de site
+voltada para ajudar usuarios a montar ou melhorar computadores de forma mais
+simples, organizada e segura.
 
-Currently, two official plugins are available:
+O projeto foi criado com React, TypeScript e Vite, publicado na Netlify e conta
+com formulario de contato protegido por Google reCAPTCHA.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Pagina inicial com apresentacao do projeto
+- Secao de solucoes para montagem de computadores
+- Cards explicando compatibilidade, consumo de energia e sugestao por perfil
+- Carrossel de depoimentos ficticios com imagens, comentarios e estrelas
+- Secao de planos
+- Formulario de contato com validacao de e-mail e mensagem
+- Protecao contra bots usando Google reCAPTCHA
+- Envio de e-mail por uma funcao serverless da Netlify
+- Layout responsivo para diferentes tamanhos de tela
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- CSS
+- Netlify
+- Netlify Functions
+- Nodemailer
+- Google reCAPTCHA
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estrutura Principal
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```txt
+src/
+  components/
+    Header.tsx
+    Solutions.tsx
+    Testimonials.tsx
+    Pricing.tsx
+    ContactForm.tsx
+    Footer.tsx
+  pages/
+    Home.tsx
+  styles/
+    *.css
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+netlify/
+  functions/
+    send-email.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como Rodar Localmente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Instale as dependencias:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+## Build
+
+Para gerar a versao final do projeto:
+
+```bash
+npm run build
+```
+
+## Lint
+
+Para verificar problemas no codigo:
+
+```bash
+npm run lint
+```
+
+## Formulario de Contato
+
+O formulario valida os dados no front-end antes do envio:
+
+- e-mail obrigatorio
+- formato valido de e-mail
+- mensagem obrigatoria
+- mensagem com pelo menos 10 caracteres
+- reCAPTCHA marcado
+
+Depois disso, os dados sao enviados para a funcao:
+
+```txt
+/.netlify/functions/send-email
+```
+
+A funcao serverless valida o token do reCAPTCHA no servidor e, se estiver tudo
+correto, envia o e-mail usando Nodemailer.
+
+## Variaveis de Ambiente
+
+Para o formulario funcionar no deploy, e necessario configurar as variaveis de
+ambiente na Netlify:
+
+```env
+VITE_RECAPTCHA_SITE_KEY=chave_publica_do_recaptcha
+RECAPTCHA_SECRET_KEY=chave_secreta_do_recaptcha
+GMAIL_USER=email_do_gmail
+GMAIL_PASS=senha_de_app_do_gmail
+```
+
+A chave `VITE_RECAPTCHA_SITE_KEY` pode ser usada no navegador, pois e uma chave
+publica. As variaveis `RECAPTCHA_SECRET_KEY`, `GMAIL_USER` e `GMAIL_PASS` devem
+ficar apenas no ambiente da Netlify.
+
+## Deploy
+
+O deploy foi feito na Netlify. O arquivo `netlify.toml` define:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+```
+
+## Observacao
+
+Os depoimentos do carrossel sao ficticios e foram criados apenas para simular
+avaliacoes dentro da landing page.
