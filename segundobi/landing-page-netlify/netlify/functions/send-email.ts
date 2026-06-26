@@ -131,7 +131,8 @@ export const handler: Handler = async (event) => {
             subject: "Contato recebido pelo ComputSpace",
             html: `
                 <h2>Contato recebido pelo site ComputSpace</h2>
-                <p>Olá, recebemos sua mensagem pelo formulário do ComputSpace.</p>
+                <p>Olá, agradecemos seu contato e recebemos sua mensagem por meio do formulário do ComputSpace.</p>
+                <p>Em breve, nossa equipe analisará sua solicitação e retornará o mais rápido possível, geralmente dentro de até 24 horas.</p>
 
                 <p><strong>E-mail informado:</strong> ${emailSeguro}</p>
 
