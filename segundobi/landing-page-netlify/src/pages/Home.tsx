@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Solutions from "../components/Solutions";
+import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
@@ -27,6 +28,8 @@ export default function Home() {
                 </section>
 
                 <Solutions />
+
+                <Testimonials />
 
                 <Pricing />
 

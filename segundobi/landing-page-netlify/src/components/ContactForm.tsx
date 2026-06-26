@@ -46,12 +46,15 @@ export default function ContactForm() {
         let intervalId: number | undefined;
 
         function renderRecaptcha() {
+            const recaptcha = window.grecaptcha;
+
             if (
-                window.grecaptcha &&
+                recaptcha &&
+                typeof recaptcha.render === "function" &&
                 recaptchaRef.current &&
                 recaptchaWidgetIdRef.current === null
             ) {
-                recaptchaWidgetIdRef.current = window.grecaptcha.render(
+                recaptchaWidgetIdRef.current = recaptcha.render(
                     recaptchaRef.current,
                     {
                         sitekey: recaptchaSiteKey,
@@ -75,7 +78,7 @@ export default function ContactForm() {
 
         renderRecaptcha();
 
-        if (!window.grecaptcha) {
+        if (!window.grecaptcha || typeof window.grecaptcha.render !== "function") {
             intervalId = window.setInterval(renderRecaptcha, 300);
         }
 
